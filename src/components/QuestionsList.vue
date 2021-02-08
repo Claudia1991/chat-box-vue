@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
     name: "QuestionList",
     props: {
@@ -29,6 +30,22 @@ export default {
         selectQuestion: function(){
             this.isSelected = !this.isSelected;
         }
+    },
+    created: function(){
+        this.questionsArray = [
+            {
+                "id":1,
+                "question": "Pregunta uno"
+            },
+            {
+                "id":2,
+                "question": "Pregunta dos"
+            },
+            {
+                "id":3,
+                "question": "Pregunta tres"
+            }
+        ]
     }
 }
 </script>

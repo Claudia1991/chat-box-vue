@@ -21,7 +21,11 @@ export default {
         },
     },
     created: function (){
-        this.date = new Date();
+        this.date = new Date().toLocaleDateString('es-AR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
     }
 
 }
@@ -44,9 +48,16 @@ export default {
     .question {
         border: 2px solid #dedede;
         border-color: rgb(40, 76, 122);
-        border-radius: 5px;
+        border-radius: 0.5em;
         background-color: #23689b;
         padding: 10px;
-        margin: 10px 0;
+        margin: 10px;
+        height: auto;
     }
+
+        .question::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 </style>

@@ -1,7 +1,11 @@
 <template>
     <div id="chat-box">
-        <answer-bubble answer="Respuesta"></answer-bubble>
-        <question-bubble question="Pregunta"></question-bubble>
+        <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
+        <question-bubble question="Pregunta Pregunta Pregunta Pregunta Pregunta"></question-bubble>
+                <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
+        <question-bubble question="Pregunta Pregunta Pregunta Pregunta Pregunta"></question-bubble>
+                <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
+        <question-bubble question="Pregunta Pregunta Pregunta Pregunta Pregunta"></question-bubble>
     </div>
 </template>
 
@@ -38,4 +42,16 @@ export default {
 <style scoped>
 /* Color de fondo donde van a estar las burbujas: fff3e6, dddddd
 Color del boton: 00af91, 007965, dddddd */
+
+    #chat-box{
+        background-color: #dddddd;
+        border-radius: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        margin: 10px;
+
+        overflow: auto;
+        max-height: 60%;
+        height: 100%;
+    }
 </style>
