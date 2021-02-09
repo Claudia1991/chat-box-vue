@@ -5,7 +5,7 @@
     dentro del chat box si poner los bubbles -->
     <div class="full-container" >
       <chat-box></chat-box>
-      <questions-list :questionsArray='"[{\"id\":1,\"question\":\"Pregunta uno\"}]"'></questions-list>
+      <questions-list></questions-list>
     </div>
   </div>
 </template>

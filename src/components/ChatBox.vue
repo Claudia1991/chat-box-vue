@@ -2,9 +2,9 @@
     <div id="chat-box">
         <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
         <question-bubble question="Pregunta Pregunta Pregunta Pregunta Pregunta"></question-bubble>
-                <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
+        <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
         <question-bubble question="Pregunta Pregunta Pregunta Pregunta Pregunta"></question-bubble>
-                <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
+        <answer-bubble answer="Respuesta respuesta respuesta respuesta respuesta"></answer-bubble>
         <question-bubble question="Pregunta Pregunta Pregunta Pregunta Pregunta"></question-bubble>
     </div>
 </template>
@@ -49,9 +49,8 @@ Color del boton: 00af91, 007965, dddddd */
         margin-left: auto;
         margin-right: auto;
         margin: 10px;
-
         overflow: auto;
-        max-height: 60%;
+        max-height: 75%;
         height: 100%;
     }
 </style>

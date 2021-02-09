@@ -17,7 +17,7 @@ export default {
         },
         date : {
             type: Date,
-            default: new Date()
+            default: null
         },
     },
     created: function(){

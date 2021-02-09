@@ -1,64 +1,65 @@
 <template>
     <div id="questions-list">
-        <ul>
-            <li v-for="(question, index) in questionArray" 
+        <div v-for="(question, index) in questionsArray" 
             :key="question.id" 
-            :class="isSelected ? no-selected : selected"
             v-on:click="selectQuestion()"
-            >{{index}} - {{question.question}}</li>
-        </ul>
+            >{{index + 1}} - {{question.question}}</div>
     </div>
 </template>
 
 <script>
 
+import DataService from '../assets/data/DataService.js'
+
 export default {
     name: "QuestionList",
+    data(){
+        return{
+            questionsArray: []
+        }
+    },
     props: {
-        questionsArray:{
-            type: Array,
-            default(){
-                return []
-            }
-        },
+        
         isSelected: {
             type: Boolean,
             default: false
+        },
+        idQuestionSelected:{
+            type: Number,
+            default: 0
         }
+    },
+    created: function(){
+        this.questionsArray = DataService.getDataRandom();
     },
     methods:{
         selectQuestion: function(){
             this.isSelected = !this.isSelected;
         }
-    },
-    created: function(){
-        this.questionsArray = [
-            {
-                "id":1,
-                "question": "Pregunta uno"
-            },
-            {
-                "id":2,
-                "question": "Pregunta dos"
-            },
-            {
-                "id":3,
-                "question": "Pregunta tres"
-            }
-        ]
     }
 }
 </script>
 
 <style scoped>
 /* color de la lista de preguntas: 1a508b, 0d335d */
-    .selected{
-        background-color: cornflowerblue;
+    div div {
+        border: 1px solid;
+        border-color:#1c2b2d;
+        border-radius: 0.3em;
+        margin: 10px;
+        background-color: #274f63 ;
     }
-    .no-selected{
-        background-color: darkcyan;
-    }
-    div ul li{
+    #questions-list{
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        color: #d2d3c9;
         transition: .8s;
+        background-color: #c6cec5;
+        border-radius: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 18%;
+        height: 100%;
+        margin: 10px;
+        overflow-y: auto;
     }
 </style>
