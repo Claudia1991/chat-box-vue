@@ -2,7 +2,7 @@
     <div id="questions-list">
         <div v-for="(question, index) in questionsArray" 
             :key="question.id" 
-            v-on:click="selectQuestion()"
+            v-on:click="selectQuestion($event, question)"
             >{{index + 1}} - {{question.question}}</div>
     </div>
 </template>
@@ -15,39 +15,38 @@ export default {
     name: "QuestionList",
     data(){
         return{
-            questionsArray: []
+            questionsArray: [],
+            idQuestionSelected:0
         }
     },
     props: {
-        
-        isSelected: {
-            type: Boolean,
-            default: false
-        },
-        idQuestionSelected:{
-            type: Number,
-            default: 0
-        }
     },
     created: function(){
-        this.questionsArray = DataService.getDataRandom();
+        this.chargeQuestions();
     },
     methods:{
-        selectQuestion: function(){
-            this.isSelected = !this.isSelected;
+        selectQuestion: function(e, element){
+            this.idQuestionSelected = element.id;
+            console.log("Elemento:", element);
+            //paso el dato al chat box del id del objeto para que publique la pregunta / respuesta
+            this.chargeQuestions();
+            //recargo las preguntas
+        },
+        chargeQuestions: function(){
+            this.questionsArray = DataService.getDataRandom();
         }
     }
 }
 </script>
 
 <style scoped>
-/* color de la lista de preguntas: 1a508b, 0d335d */
     div div {
         border: 1px solid;
         border-color:#1c2b2d;
         border-radius: 0.3em;
         margin: 10px;
         background-color: #274f63 ;
+        transition: step-start;
     }
     #questions-list{
         font-family: Avenir, Helvetica, Arial, sans-serif;

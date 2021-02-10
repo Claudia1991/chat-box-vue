@@ -8,27 +8,27 @@ export default{
             },
             {
                 "id" : 2,
-                "question" : "Pregunta uno Pregunta uno Pregunta uno Pregunta uno Pregunta uno",
+                "question" : "Pregunta dos Pregunta dos Pregunta dos Pregunta dos Pregunta dos",
                 "answer" : "Respuesta dos"
             },
             {
                 "id" : 3,
-                "question" : "Pregunta uno Pregunta uno Pregunta uno Pregunta uno Pregunta uno",
+                "question" : "Pregunta tres Pregunta tres Pregunta tres Pregunta tres Pregunta tres",
                 "answer" : "Respuesta tres"
             },
             {
                 "id" : 4,
-                "question" : "Pregunta uno Pregunta uno Pregunta uno Pregunta uno Pregunta uno",
+                "question" : "Pregunta cuatro Pregunta cuatro Pregunta cuatro Pregunta cuatro Pregunta cuatro",
                 "answer" : "Respuesta cuatro"
             },
             {
                 "id" : 5,
-                "question" : "Pregunta uno Pregunta uno Pregunta uno Pregunta uno Pregunta uno",
+                "question" : "Pregunta cinco Pregunta cinco Pregunta cinco Pregunta cinco Pregunta cinco",
                 "answer" : "Respuesta cinco"
             },
             {
                 "id" : 6,
-                "question" : "Pregunta uno Pregunta uno Pregunta uno Pregunta uno Pregunta uno",
+                "question" : "Pregunta seis Pregunta seis Pregunta seis Pregunta seis Pregunta seis",
                 "answer" : "Respuesta seis"
             }
         ];
@@ -43,18 +43,19 @@ export default{
     },
     getDataRandom(){
         var dataArray = [];
-        while(dataArray.length < 3){
+        while(dataArray.length < 2){
             var id = this.getIdRandom();
-            console.log("Id",id);
+            console.log("Id random:",id);
             if(dataArray.find(e => e.id === id) === undefined){
                 dataArray.push(this.getData().filter(function(item){
                     return item.id === id;
                 })[0]);
+                console.log("Data array",dataArray);
             }
         }
         return dataArray;
     },
     getIdRandom(){
-        return Math.floor(Math.random() * (this.getData().length + 1));
+        return Math.floor(Math.random() * (this.getData().length) + 1);
     }
 }
