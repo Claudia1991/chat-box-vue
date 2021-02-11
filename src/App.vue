@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <!-- Aca deberia de estar el contorno del celular e ir cargando los componentes aca
-    el chat-box, la lista de preguntas y el boton
-    dentro del chat box si poner los bubbles -->
+    <information-bubble></information-bubble>
     <div class="full-container" >
       <chat-box></chat-box>
       <questions-list></questions-list>
@@ -12,13 +10,15 @@
 
 <script>
 import ChatBox from './components/ChatBox.vue';
+import InformationBubble from './components/InformationBubble.vue';
 import QuestionsList from './components/QuestionsList.vue';
 
 export default {
   name: 'App',
   components: {
     ChatBox,
-    QuestionsList
+    QuestionsList,
+    InformationBubble
   }
 }
 </script>
@@ -37,7 +37,9 @@ export default {
   border-color: black;
   border-radius: 5%;
   background-color:  #222831;
-  width: 35%;
+  max-width: 25%;
+  width: 100%;
+  max-height: 50%;
   height: 550px;
   margin-left: auto;
   margin-right: auto;

@@ -27,13 +27,14 @@ export default {
     methods:{
         selectQuestion: function(e, element){
             this.idQuestionSelected = element.id;
-            console.log("Elemento:", element);
-            //paso el dato al chat box del id del objeto para que publique la pregunta / respuesta
+            console.log("idQuestionSelected", this.idQuestionSelected);
+            console.log("this.$store", this.$store);
+            console.log("=====");
+            this.$store.commit('updateData', this.idQuestionSelected);
             this.chargeQuestions();
-            //recargo las preguntas
         },
         chargeQuestions: function(){
-            this.questionsArray = DataService.getDataRandom();
+            this.questionsArray = DataService.getRandomQuestions();
         }
     }
 }

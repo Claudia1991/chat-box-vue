@@ -27,20 +27,20 @@ export default {
         QuestionBubble
     },
     methods:{
-        getQuestionById(id){
-            return DataService.getMessageByIdAndType(id, 'QUESTION');
-        },
-        getAnswerById(id){
-            return DataService.getMessageByIdAndType(id, 'ANSWER');
-        },
-        createBubbleObjectByType(){
-            
+        updateBubblesArray(id){
+            var newsMessages = DataService.messagesFactoryById(id);
+            newsMessages.forEach(e => {
+                this.bubblesArray.push(e);
+            });
         }
     },
     created: function(){
-        this.bubblesArray = [{"id":0, "message": "Hola, como estas? hazme una pregunta!!", "isAnswer": true, "isQuestion": false}];
+        this.bubblesArray.push(DataService.getFirstAnswer());
     },
     watch: {
+        '$store.state.idData'(newValue){
+            this.updateBubblesArray(newValue);
+        },
         bubblesArray(){
 
         }
