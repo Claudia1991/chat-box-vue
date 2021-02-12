@@ -1,6 +1,6 @@
 <template>
     <div id="chat-box">
-        <div v-for="bubble in bubblesArray" :key="bubble.id">
+        <div v-for="(bubble,index) in bubblesArray" :key="index">
             <answer-bubble v-if="bubble.isAnswer" :answer="bubble.message"></answer-bubble>
             <question-bubble v-if="bubble.isQuestion" :question="bubble.message"></question-bubble>
         </div>

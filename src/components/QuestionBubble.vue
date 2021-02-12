@@ -10,15 +10,16 @@
 <script>
 export default {
     name:"Question",
+    data(){
+        return{
+            date:null
+        }
+    },
     props:{
         question : {
             type: String,
             default: ''
-        },
-        date : {
-            type: Date,
-            default: null
-        },
+        }
     },
     created: function (){
         this.date = new Date().toLocaleDateString('es-AR', {

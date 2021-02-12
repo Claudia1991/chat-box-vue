@@ -27,9 +27,6 @@ export default {
     methods:{
         selectQuestion: function(e, element){
             this.idQuestionSelected = element.id;
-            console.log("idQuestionSelected", this.idQuestionSelected);
-            console.log("this.$store", this.$store);
-            console.log("=====");
             this.$store.commit('updateData', this.idQuestionSelected);
             this.chargeQuestions();
         },
