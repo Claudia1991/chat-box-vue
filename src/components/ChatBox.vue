@@ -59,5 +59,17 @@ export default {
         overflow: auto;
         max-height: 75%;
         height: 100%;
+        scrollbar-width: 1px;
+    }
+
+    div div::-webkit-scrollbar{
+        width: 16px;
+    }
+    
+    div div::-webkit-scrollbar-thumb {
+        background-color: #393e46;
+        border: 4px solid transparent;
+        border-radius: 8px;
+        background-clip: padding-box;  
     }
 </style>

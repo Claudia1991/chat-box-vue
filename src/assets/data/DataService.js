@@ -3,22 +3,22 @@ export default{
         return [
             {
                 "id" : 1,
-                "question" : "¿Cuantos años de experiencia tienes en desarrollo?",
+                "question" : "¿Cuántos años de experiencia tienes en desarrollo?",
                 "answer" : "Empecé a desarrollar en el 2018."
             },
             {
                 "id" : 2,
-                "question" : "¿En que tecnologias desarrollas?",
+                "question" : "¿En qué tecnologías desarrollas?",
                 "answer" : "Desarrollo en .Net lo que es back end, tengo experiencia tanto en Net Core y Framework; despúes un poco Javascript con los frameworks Vue Js y Angular Js. Los infaltables Html y CSS. Y no olvidemos a Sql Server."
             },
             {
                 "id" : 3,
-                "question" : "¿Con que tecnologias esta hecho esta app?",
+                "question" : "¿Con qué tecnologías esta hecho esta app?",
                 "answer" : "Con Vue Js. Esta deployada con GitHub Pages."
             },
             {
                 "id" : 4,
-                "question" : "¿Cuales son tus hobbies?",
+                "question" : "¿Cúales son tus hobbies?",
                 "answer" : "Uff, me gusta tomar cervezas, andar en bici y ver fútbol. :P"
             },
             {
@@ -33,7 +33,7 @@ export default{
             },
             {
                 "id" : 7,
-                "question" : "Muchas gracias Clau !",
+                "question" : "¡Muchas gracias Clau !",
                 "answer" : "Muchas gracias a vos por tomarte el tiempo de probar esta nueva forma de charlar! :D <3"
             },
             {
@@ -48,7 +48,7 @@ export default{
             },
             {
                 "id" : 10,
-                "question" : "¿Cual consideras tus punto fuerte?",
+                "question" : "¿Cual consideras tus puntos fuertes?",
                 "answer" : "Que no dejo de intertar las cosas, hasta que salgan!."
             }
         ];

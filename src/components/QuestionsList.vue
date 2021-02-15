@@ -44,7 +44,8 @@ export default {
         border-radius: 0.3em;
         margin: 10px;
         background-color: #274f63 ;
-        transition: step-start;
+        transition: .8s;
+        cursor: pointer;
     }
     #questions-list{
         font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -58,5 +59,14 @@ export default {
         height: 100%;
         margin: 10px;
         overflow-y: auto;
+    }
+    div div::-webkit-scrollbar{
+        width: 16px;
+    }
+    div div::-webkit-scrollbar-thumb {
+        background-color: #393e46;
+        border: 4px solid transparent;
+        border-radius: 8px;
+        background-clip: padding-box;  
     }
 </style>
