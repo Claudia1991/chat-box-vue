@@ -34,7 +34,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Deploy Git Hub Pages
-        uses: Claudia1991/Claudia1991.github.io
+        uses: Claudia1991/Claudia1991.github.io@master
         with: 
           branch: master 
           folder: dist/ 
