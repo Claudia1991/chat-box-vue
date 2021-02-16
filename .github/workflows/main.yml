@@ -6,7 +6,12 @@ jobs:
   build-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 'Claudia1991/chat-box-vue'
+          ref: 'master'
+          token: ${{ secrets.API_TOKEN_GITHUB }}
 
       - name: Install-Node
         uses: actions/setup-node@v1
