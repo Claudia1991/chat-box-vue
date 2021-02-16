@@ -18,6 +18,8 @@ jobs:
     needs: build-app
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Deploying
         uses: Claudia1991/chat-box-vue@master
         env:
