@@ -1,5 +1,5 @@
 <template>
-    <div id="chat-box">
+    <div id="chat-box" ref="chat">
         <div v-for="(bubble,index) in bubblesArray" :key="index">
             <answer-bubble v-if="bubble.isAnswer" :answer="bubble.message"></answer-bubble>
             <question-bubble v-if="bubble.isQuestion" :question="bubble.message"></question-bubble>
@@ -32,7 +32,12 @@ export default {
             newsMessages.forEach(e => {
                 this.bubblesArray.push(e);
             });
-        }
+        },
+        scrollToEnd: function () {
+            this.$nextTick(function() {
+                var element = this.$refs.chat;
+                element.scrollTop = element.scrollHeight + 120;
+            })}
     },
     created: function(){
         this.bubblesArray.push(DataService.getFirstAnswer());
@@ -42,10 +47,9 @@ export default {
             this.updateBubblesArray(newValue);
         },
         bubblesArray(){
-
+            this.scrollToEnd();
         }
-    }
-    
+    }    
 }
 </script>
 
@@ -59,7 +63,6 @@ export default {
         overflow: auto;
         max-height: 75%;
         height: 100%;
-        scrollbar-width: 1px;
     }
 
     div div::-webkit-scrollbar{

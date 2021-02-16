@@ -9,7 +9,7 @@ export default {
     name:"InformationBuble",
     data(){
         return {
-            information: 'Esta app aun esta en construcción! \n Estoy trabajando para tenerla al 100%. :D',
+            information: 'Trabajando para agregar el idioma inglés. :D',
         }
     }
 }

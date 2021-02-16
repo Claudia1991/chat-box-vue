@@ -58,8 +58,8 @@ export default {
     }
 
     .answer::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+        content: "";
+        clear: both;
+        display: table;
+    }
 </style>
