@@ -6,8 +6,7 @@ jobs:
   build-app:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
       - name: Install-Node
         uses: actions/setup-node@v1
@@ -23,11 +22,14 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          branch: master
+          folder: dist/
           source-directory: 'dist/'
           destination-github-username: 'Claudia1991'
           destination-repository-name: 'Claudia1991.github.io'
           user-email: 'claudia.jara.py@gmail.com'
           commit-message: 'Update from $REPOSITORY_URL@commit'
-          
+
       - name: Test get variable generated
         run: echo $DESTINATION_CLONED_DIRECTORY
