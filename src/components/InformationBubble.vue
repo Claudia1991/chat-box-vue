@@ -1,17 +1,18 @@
 <template>
     <div id="InformationBuble">
-        <span><center><b>{{information}}</b></center></span>
+        <button v-on:click="selectedLanguage('ENGLISH')">ENGLISH</button>
+        <button v-on:click="selectedLanguage('SPANISH')">SPANISH</button>
     </div>
 </template>
 
 <script>
 export default {
     name:"InformationBuble",
-    data(){
-        return {
-            information: 'Trabajando para agregar el idioma inglés. :D',
+    methods: {
+        selectedLanguage: function(language)  {
+            this.$store.commit('updateSelectedLanguage', language);
         }
-    }
+    },
 }
 </script>
 
@@ -23,6 +24,12 @@ export default {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 5px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    button{
+        margin: 2px;
     }
 
     /* Extra small devices (phones, 600px and down) */

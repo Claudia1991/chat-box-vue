@@ -13,16 +13,14 @@ import DataService from '../assets/data/DataService.js'
 
 export default {
     name: "QuestionList",
+    props:{
+        selectedLanguage:null
+    },
     data(){
         return{
             questionsArray: [],
-            idQuestionSelected:0
+            idQuestionSelected:0,
         }
-    },
-    props: {
-    },
-    created: function(){
-        this.chargeQuestions();
     },
     methods:{
         selectQuestion: function(e, element){
@@ -31,9 +29,16 @@ export default {
             this.chargeQuestions();
         },
         chargeQuestions: function(){
-            this.questionsArray = DataService.getRandomQuestions();
+            if(this.selectedLanguage){
+                this.questionsArray = DataService.getRandomQuestionsByLanguage(this.selectedLanguage);
+            }
         }
-    }
+    },
+    watch:{
+        selectedLanguage(){
+            this.chargeQuestions();
+        }
+    }  
 }
 </script>
 
