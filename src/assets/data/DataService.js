@@ -1,15 +1,15 @@
 export default{
-    getData(){
+    getSpanishMessages(){
         return [
             {
                 "id" : 1,
-                "question" : "¿Cuántos años de experiencia tienes en desarrollo?",
-                "answer" : "Empecé a desarrollar en el 2018."
+                "question" : "¿Cuántos años de experiencia tienes en desarrollo de software?",
+                "answer" : "Empecé a trabajar como programadora desde el 2018"
             },
             {
                 "id" : 2,
                 "question" : "¿En qué tecnologías desarrollas?",
-                "answer" : "Desarrollo en .Net lo que es back end, tengo experiencia tanto en Net Core y Framework; despúes un poco Javascript con los frameworks Vue Js y Angular Js. Los infaltables Html y CSS. Y no olvidemos a Sql Server."
+                "answer" : "Para back end desarrollo en Net Framework y Net Core. Con el front end tengo experiencia con los framework Vue Js y React. Para la gestión de base de datos, SQL Server"
             },
             {
                 "id" : 3,
@@ -29,7 +29,7 @@ export default{
             {
                 "id" : 6,
                 "question" : "¿Que tal está tu inglés?",
-                "answer" : "Pues, en el escrito me considero intermedio y en el oral aún me falta práctica! "
+                "answer" : "Tengo un nivel Advanced."
             },
             {
                 "id" : 7,
@@ -53,31 +53,121 @@ export default{
             }
         ];
     },
-    messagesFactoryById(id){
-        var messagesArray = [];
-        var selectedItem =  this.getData().filter(function(item){
-            return item.id === id;
-        })[0];
-        messagesArray.push({"message": selectedItem.question, "isAnswer": false, "isQuestion": true});
-        messagesArray.push({"message": selectedItem.answer, "isAnswer": true, "isQuestion": false});
+    getEnglishMessages(){
+        return [
+            {
+                "id" : 1,
+                "question" : "How many years of experience do you have in software development?",
+                "answer" : "I started working as a programmer since 2018"
+            },
+            {
+                "id" : 2,
+                "question" : "What technologies do you use to develop?",
+                "answer" : "For back end development in Net Framework and Net Core. With the front end I have experience with the Vue Js and React frameworks. For database management, SQL Server"
+            },
+            {
+                "id" : 3,
+                "question" : "What technologies is this app made with?",
+                "answer" : "With Vue Js. It is deployed with GitHub Pages."
+            },
+            {
+                "id" : 4,
+                "question" : "What are your hobbies?",
+                "answer" : "Uff, I like to drink beers, ride my bike and watch football. :P"
+            },
+            {
+                "id" : 5,
+                "question" : "How do I contact you?",
+                "answer" : "Well, I leave you the link of my LinkedIn profile and we can continue chatting! And feel free to make suggestions regarding this form of presentation. 'linkedin.com/in/claudia-jara-2022'"
+            },
+            {
+                "id" : 6,
+                "question" : "How is your English?",
+                "answer" : "I have an Advanced level."
+            },
+            {
+                "id" : 7,
+                "question" : "Thank you very much Clau!",
+                "answer" : "Thank you very much for taking the time to try this new way of chatting! :D <3"
+            },
+            {
+                "id" : 8,
+                "question" : "Tell me something about you",
+                "answer" : "My name is Claudia, I started developing since 2018. I like the back end and databases but I adapt well in terms of front end development."
+            },
+            {
+                "id" : 9,
+                "question" : "What do you consider your weak points?",
+                "answer" : "I think I lose patience fast! xD."
+            },
+            {
+                "id" : 10,
+                "question" : "What do you consider your strengths?",
+                "answer" : "That I don't stop trying things, until they come out!."
+            }
+        ];
+    },
+    messagesFactoryByIdAndLanguage(id, language){
+        let messagesArray = [];
+        if(id && language){
+            let selectedItem =  this.getMessagesByLanguage(language).filter(function(item){
+                return item.id === id;
+            })[0];
+            messagesArray.push({"message": selectedItem.question, "isAnswer": false, "isQuestion": true});
+            messagesArray.push({"message": selectedItem.answer, "isAnswer": true, "isQuestion": false});
+        }
+       
         return messagesArray;
     },
-    getRandomQuestions(){
-        var dataArray = [];
-        while(dataArray.length < 3){
-            var id = this.getIdRandom();
-            if(dataArray.find(e => e.id === id) === undefined){
-                dataArray.push(this.getData().filter(function(item){
-                    return item.id === id;
-                })[0]);
+    getRandomQuestionsByLanguage(language){
+        let dataArray = [];
+        if(language){
+
+            while(dataArray.length < 3){
+                let id = this.getIdRandom();
+                if(dataArray.find(e => e.id === id) === undefined){
+                    dataArray.push(this.getMessagesByLanguage(language).filter(function(item){
+                        return item.id === id;
+                    })[0]);
+                }
             }
         }
+            
         return dataArray;
     },
     getIdRandom(){
-        return Math.floor(Math.random() * (this.getData().length) + 1);
+        return Math.floor(Math.random() * (10) + 1);
     },
-    getFirstAnswer(){
-        return {"message": "Hola, ¿cómo estás? Hazme una pregunta para comenzar!", "isAnswer": true, "isQuestion": false};
+    getFirstAnswerByLanguage(language){
+        let message = {};
+        switch (language) {
+            case "SPANISH":
+                message = {"message": "Hola, ¿cómo estás? Hazme una pregunta para comenzar!", "isAnswer": true, "isQuestion": false};
+                break;
+        
+            case "ENGLISH":
+                message = {"message": "Hello how are you? Ask me a question to get started!", "isAnswer": true, "isQuestion": false};
+                break;
+                default:
+                    message={}
+                    break;
+        }
+        return message;
+    },
+    getMessagesByLanguage(language){
+        let messages = [];
+        switch (language) {
+            case "SPANISH":
+                messages = this.getSpanishMessages();
+                break;
+        
+            case "ENGLISH":
+                messages = this.getEnglishMessages();
+                break;
+                default:
+                    messages=[]
+                    break;
+        }
+        return messages;
     }
 }
