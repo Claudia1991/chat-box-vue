@@ -1,0 +1,34 @@
+name: Install and Build and Deploy
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  build-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout chat-box-vue
+        uses: actions/checkout@v2
+        with:
+          repository: 'Claudia1991/chat-box-vue'
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+
+      - name: Install and Build
+        run: |
+             npm install
+             npm run build
+
+      - name: Deploy to Claudia1991.github.io
+        uses: peaceiris/actions-gh-pages@v3
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          branch: master
+          publish_dir: ./dist
+          repository: 'Claudia1991/Claudia1991.github.io'
+          user_email: 'claudia.jara.py@gmail.com'
+          user_name: 'GitHub Actions'
+          commit_message: 'Deploy from $GITHUB_REPOSITORY@$GITHUB_SHA'
