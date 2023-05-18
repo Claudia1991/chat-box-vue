@@ -35,7 +35,7 @@ jobs:
       - name: Deploy to repo Claudia1991.github.io
         uses: peaceiris/actions-gh-pages@v3
         env:
-          API_TOKEN_GITHUB: ${{ secrets.DEPLOY_KEY }}
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         with:
           publish_dir: ./dist
           user_email: 'claudia.jara.py@gmail.com'
