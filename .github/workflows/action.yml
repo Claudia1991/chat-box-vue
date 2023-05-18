@@ -15,7 +15,10 @@ jobs:
         with:
           repository: 'Claudia1991/chat-box-vue'
           token: ${{ secrets.API_TOKEN_GITHUB }}
-
+      - name: Configure OpenSSL
+        run: |
+            sudo apt-get install -y openssl
+            
       - name: Install and Build Proyect
         run: |
              npm cache clean --force
