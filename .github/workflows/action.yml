@@ -37,9 +37,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.DEPLOY_KEY }}
         with:
-          branch: master
           publish_dir: ./dist
-          repository: 'Claudia1991/Claudia1991.github.io'
           user_email: 'claudia.jara.py@gmail.com'
           user_name: 'Claudia1991'
           commit_message: 'Deploy from $GITHUB_REPOSITORY@$GITHUB_SHA'
