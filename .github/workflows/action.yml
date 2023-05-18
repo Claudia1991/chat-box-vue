@@ -16,12 +16,12 @@ jobs:
           repository: 'Claudia1991/chat-box-vue'
           token: ${{ secrets.API_TOKEN_GITHUB }}
 
-      - name: Install and Build
+      - name: Install and Build Proyect
         run: |
              npm install
              npm run build
 
-      - name: Deploy to Claudia1991.github.io
+      - name: Deploy to repo Claudia1991.github.io
         uses: peaceiris/actions-gh-pages@v3
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
