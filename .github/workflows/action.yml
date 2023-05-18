@@ -13,7 +13,7 @@ jobs:
       - name: Checkout chat-box-vue
         uses: actions/checkout@v2
         with:
-          repository: 'https://github.com/Claudia1991/chat-box-vue.git'
+          repository: 'Claudia1991/chat-box-vue'
           token: ${{ secrets.API_TOKEN_GITHUB }}
 
       - name: Install and Build
