@@ -35,8 +35,8 @@ jobs:
       - name: Deploy to repo Claudia1991.github.io
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          user_email: 'claudia.jara.py@gmail.com'
-          user_name: 'Claudia1991'
-          commit_message: 'Deploy from $GITHUB_REPOSITORY@$GITHUB_SHA'
+          token: ${{ secrets.DEPLOY_KEY }}
+          commit_message: 'Deployed from chat-box-vue'
+          external_repository: 'Claudia1991/Claudia1991.github.io'
+          external_branch: master
