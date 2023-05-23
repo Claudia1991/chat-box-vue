@@ -32,11 +32,20 @@ jobs:
              npm install
              npm run build
 
-      - name: Deploy to repo Claudia1991.github.io
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
         with:
-          publish_dir: ./dist
+          name: dist
+          path: dist
+
+      - name: Deploy to Claudia1991.github.io
+        uses: actions/checkout@v2
+        with:
+          repository: 'Claudia1991/Claudia1991.github.io'
           token: ${{ secrets.DEPLOY_KEY }}
-          commit_message: 'Deployed from chat-box-vue'
-          external_repository: 'Claudia1991/Claudia1991.github.io'
-          external_branch: master
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: Claudia1991/Claudia1991.github.io
