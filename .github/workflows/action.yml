@@ -48,4 +48,3 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: Claudia1991/Claudia1991.github.io
