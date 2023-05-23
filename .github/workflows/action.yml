@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: 'Claudia1991/Claudia1991.github.io'
-          token: ${{ secrets.DEPLOY_KEY }}
+          token: ${{ secrets.API_TOKEN_GITHUB }}
 
       - name: Download artifact
         uses: actions/download-artifact@v2
